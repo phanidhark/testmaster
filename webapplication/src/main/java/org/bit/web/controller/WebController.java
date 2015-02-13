@@ -1,10 +1,16 @@
-package com.bitmore.search.controller;
+package org.bit.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+/**
+ * 
+ * @author phanidhar & leela
+ *
+ */
 
 @Controller
 @RequestMapping("/")
