@@ -1,35 +1,28 @@
 package org.bit.db.login;
-import static org.junit.Assert.assertFalse;
 
 import org.bit.db.question.QuestionService;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-/**
- * 
- * @author phanidhar & leela
- *
- */
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations ={"classpath:/org/bit/db/login/db-question-test.xml"})
 public class QuestionServiceTest {
 	
-	
+	@Autowired
 	QuestionService questionService ;
 	
 	@Test
 	public void testUserDetails(){
 		System.out.println("Start testUserDetails");
-		ApplicationContext context = 
-		    	new ClassPathXmlApplicationContext("config//db-question-config.xml");
-		questionService = (QuestionService)context.getBean("questionService");
 		System.out.println("QuestionService"+questionService);
-		questionService.getQuestions();
+		System.out.println("==>>"+questionService.getQuestions());
 		System.out.println("Completed testUserDetails");
 	}
 	
-	@Test
-	public void testCreateUser(){
-		System.out.println("Start testCreateUser");
-		assertFalse(false);
-		System.out.println("Completed testCreateUser");
-	}
+	
 }

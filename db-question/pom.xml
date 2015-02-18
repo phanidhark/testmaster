@@ -12,7 +12,8 @@
 
 	<properties>
 		<spring.version>4.0.1.RELEASE</spring.version>
-		<junit.version>4.0</junit.version>
+		<spring.batch.test.version>3.0.3.RELEASE</spring.batch.test.version>
+		<junit.version>4.8.1</junit.version>
 		<mysql.connector.version>5.1.30</mysql.connector.version>
 		<hibernate.version>4.2.11.Final</hibernate.version>
 		<dbcp.version>1.4</dbcp.version>
@@ -25,6 +26,7 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -32,7 +34,22 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
@@ -56,6 +73,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>database-core</finalName>
+		<finalName>db-question</finalName>
 	</build>
 </project>
