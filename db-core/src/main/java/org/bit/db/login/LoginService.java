@@ -24,16 +24,26 @@ public class LoginService {
 		return user;
 	}
 
-	public boolean changePassword(String username, String newPassword) {
-		User user = getUserDetails(username);
-		if(user!=null){
-			
+	public int changePassword(String username, String newPassword) {
+		User selUser = getUserDetails(username);
+		if(selUser!=null){
+			String sql ="UPDATE users SET PASSWORD = ? WHERE USERNAME = ?";
+			Object[] params = new Object[] { newPassword,username};
+			int count= jdbcTemplateObject.update( sql,params);
+			return count;
 		}
-		return false;
+		return 0;
 	}
 
-	public boolean updateProfile(User user){
-		return false;
+	public int updateProfile(User user){
+		User selUser = getUserDetails(user.getUsername());
+		if(selUser!=null){
+			String sql ="UPDATE users SET FIRST_NAME = ?, LAST_NAME =?, EMAIL = ?, MOBILE = ?, enabled = ? WHERE USERNAME = ?";
+			Object[] params = new Object[] { user.getFirstName(),user.getLastName(),user.getEmail(),user.getMobile(),user.isEnabled(),user.getUsername()};
+			int count= jdbcTemplateObject.update( sql,params);
+			return count;
+		}
+		return 0;
 	}
 	public boolean createUser(User user) {
 		String sql ="INSERT INTO `testmaster`.`users` (`USERNAME`, `PASSWORD`, `FIRST_NAME`, `LAST_NAME`, `EMAIL`, `MOBILE`, `enabled`)"+
